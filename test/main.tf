@@ -2,6 +2,11 @@ terraform {
   required_version = ">= 0.12.26"
 }
 
+variable access_key {}
+variable secret_key {}
+variable domain_name {}
+variable tenant_name {}
+
 provider "opentelekomcloud" {
   access_key  = var.access_key
   secret_key  = var.secret_key
@@ -12,7 +17,7 @@ provider "opentelekomcloud" {
 
 module "vpc" {
   source       = "app.terraform.io/selfscrum/vpc/opentelekomcloud"
-  version      = "0.1.1"
+  version      = "0.1.2"
   stage        = var.stage
   vpc_cidr     = var.vpc_cidr
   public_cidr  = var.public_cidr

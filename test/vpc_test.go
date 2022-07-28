@@ -21,6 +21,12 @@ func TestTerraformVpc(t *testing.T) {
 	output := terraform.Output(t, terraformOptions, "vpc_id")
 	assert.NotEqual(t, "", output)
 
+	output := terraform.Output(t, terraformOptions, "vpc_id_cidr")
+	assert.Equal(t, "10.0.0.0/8", output)
+
+	output := terraform.Output(t, terraformOptions, "vpc_cidr_status")
+	assert.Contains(t, ["OK", "CREATING"], output)
+
 	output := terraform.Output(t, terraformOptions, "nat_public_ip")
 	assert.Regexp(t, "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+", output)
 
@@ -33,7 +39,18 @@ func TestTerraformVpc(t *testing.T) {
 	output := terraform.Output(t, terraformOptions, "public_subnet_id")
 	assert.NotEqual(t, "", output)
 
-	output := terraform.Output(t, terraformOptions, "public_subnet_id")
+	output := terraform.Output(t, terraformOptions, "public_subnet_cidr")
+	assert.Equal(t, "10.0.1.0/24", output)
+
+	output := terraform.Output(t, terraformOptions, "public_subnet_status")
+	assert.Equal(t, "ACTIVE", output)
+
+	output := terraform.Output(t, terraformOptions, "private_subnet_id")
 	assert.NotEqual(t, "", output)
 
+	output := terraform.Output(t, terraformOptions, "private_subnet_cidr")
+	assert.Equal(t, "10.0.0.0/24", output)
+
+	output := terraform.Output(t, terraformOptions, "private_subnet_status")
+	assert.Equal(t, "ACTIVE", output)
 }
