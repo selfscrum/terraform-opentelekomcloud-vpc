@@ -18,6 +18,22 @@ func TestTerraformVpc(t *testing.T) {
 
 	terraform.InitAndApply(t, terraformOptions)
 
-	output := terraform.Output(t, terraformOptions, "hello_world")
-	assert.Equal(t, "Hello, World!", output)
+	output := terraform.Output(t, terraformOptions, "vpc_id")
+	assert.NotEqual(t, "", output)
+
+	output := terraform.Output(t, terraformOptions, "nat_public_ip")
+	assert.Regexp(t, "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+", output)
+
+	output := terraform.Output(t, terraformOptions, "nat_public_ip_id")
+	assert.NotEqual(t, "", output)
+
+	output := terraform.Output(t, terraformOptions, "nat_gateway_id")
+	assert.NotEqual(t, "", output)
+
+	output := terraform.Output(t, terraformOptions, "public_subnet_id")
+	assert.NotEqual(t, "", output)
+
+	output := terraform.Output(t, terraformOptions, "public_subnet_id")
+	assert.NotEqual(t, "", output)
+
 }

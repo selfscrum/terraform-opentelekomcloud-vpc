@@ -8,11 +8,13 @@ provider "opentelekomcloud" {
   domain_name = var.domain_name
   tenant_name = var.tenant_name
   auth_url    = "https://iam.eu-de.otc.t-systems.com/v3"
-  alias = "opentelekomcloud-vpc-test"
 }
 
 module "vpc" {
-  source  = "app.terraform.io/selfscrum/vpc/opentelekomcloud"
-  version = "0.1.1"
+  source       = "app.terraform.io/selfscrum/vpc/opentelekomcloud"
+  version      = "0.1.1"
+  stage        = var.stage
+  vpc_cidr     = var.vpc_cidr
+  public_cidr  = var.public_cidr
+  private_cidr = var.private_cidr
 }
-
