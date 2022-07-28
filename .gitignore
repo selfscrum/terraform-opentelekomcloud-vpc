@@ -33,3 +33,5 @@ secret.tfvars
 *.pub
 README-for-now.md
 modules
+go.mod
+go.sum

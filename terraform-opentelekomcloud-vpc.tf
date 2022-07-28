@@ -7,7 +7,6 @@
 # network and subnet
 #
 
-
 ## VPC
 
 resource "opentelekomcloud_vpc_v1" "nc_vpc" {
