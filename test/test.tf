@@ -13,6 +13,6 @@ provider "opentelekomcloud" {
 
 module "vpc" {
   source  = "app.terraform.io/selfscrum/vpc/opentelekomcloud"
-  version = "0.1.0"
+  version = "0.1.1"
 }
 

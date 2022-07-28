@@ -9,9 +9,9 @@ import (
 
 func TestTerraformVpc(t *testing.T) {
 	// retryable errors in terraform testing.
-	vf := []string{"./secret.tfvars"}
+
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: ".", VarFiles: vf,
+		TerraformDir: ".", VarFiles: []string{"./secret.tfvars"},
 	})
 
 	defer terraform.Destroy(t, terraformOptions)
