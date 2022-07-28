@@ -7,11 +7,12 @@
 # network and subnet
 #
 
+
 ## VPC
 
 resource "opentelekomcloud_vpc_v1" "nc_vpc" {
-  name = format("%s_vpc", var.stage)
-  cidr = var.vpc_cidr
+  name   = format("%s_vpc", var.stage)
+  cidr   = var.vpc_cidr
   shared = false
   tags = {
     workspace = var.stage
@@ -28,7 +29,7 @@ resource "opentelekomcloud_vpc_subnet_v1" "public" {
 
   tags = {
     workspace = var.stage
-    scope = "PUBLIC"
+    scope     = "PUBLIC"
   }
 }
 
@@ -42,7 +43,7 @@ resource "opentelekomcloud_vpc_subnet_v1" "private" {
 
   tags = {
     workspace = var.stage
-    scope = "PRIVATE"
+    scope     = "PRIVATE"
   }
 }
 
@@ -62,7 +63,7 @@ resource "opentelekomcloud_nat_gateway_v2" "nc_nat" {
 
 # EIP for SNAT
 
-resource "opentelekomcloud_networking_floatingip_v2" snat_public_ip {
+resource "opentelekomcloud_networking_floatingip_v2" "snat_public_ip" {
 }
 
 # SNAT Links
