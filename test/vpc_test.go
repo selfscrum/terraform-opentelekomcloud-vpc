@@ -18,7 +18,7 @@ func TestTerraformVpc(t *testing.T) {
 
 	terraform.InitAndApply(t, terraformOptions)
 
-	output := terraform.Output(t, terraformOptions, "vpc_id")
+	v, output := terraform.Output(t, terraformOptions, "vpc_id")
 	assert.NotEqual(t, "", output)
 
 	output := terraform.Output(t, terraformOptions, "vpc_id_cidr")
@@ -42,8 +42,8 @@ func TestTerraformVpc(t *testing.T) {
 	output := terraform.Output(t, terraformOptions, "public_subnet_cidr")
 	assert.Equal(t, "10.0.1.0/24", output)
 
-	output := terraform.Output(t, terraformOptions, "public_subnet_status")
-	assert.Equal(t, "ACTIVE", output)
+	output := terraform.Output(t, terraformOptions, "public_subnet_vpc_id")
+	assert.Equal(t, v, output)
 
 	output := terraform.Output(t, terraformOptions, "private_subnet_id")
 	assert.NotEqual(t, "", output)
@@ -51,6 +51,6 @@ func TestTerraformVpc(t *testing.T) {
 	output := terraform.Output(t, terraformOptions, "private_subnet_cidr")
 	assert.Equal(t, "10.0.0.0/24", output)
 
-	output := terraform.Output(t, terraformOptions, "private_subnet_status")
-	assert.Equal(t, "ACTIVE", output)
+	output := terraform.Output(t, terraformOptions, "private_subnet_vpc_id")
+	assert.Equal(t, v, output)
 }

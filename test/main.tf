@@ -17,7 +17,7 @@ provider "opentelekomcloud" {
 
 module "vpc" {
   source       = "app.terraform.io/selfscrum/vpc/opentelekomcloud"
-  version      = "0.1.2"
+  version      = "0.1.4"
   stage        = var.stage
   vpc_cidr     = var.vpc_cidr
   public_cidr  = var.public_cidr

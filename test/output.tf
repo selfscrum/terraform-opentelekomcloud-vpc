@@ -37,9 +37,9 @@ output "public_subnet_cidr" {
   value       = module.vpc.public_subnet_cidr
   description = "CIDR of the created public_subnet"
 }
-output "public_subnet_status" {
-  value       = module.vpc.public_subnet_status
-  description = "Status of the created public_subnet"
+output "public_subnet_vpc_id" {
+  value       = module.vpc.public_subnet_vpc_id
+  description = "VPC of the created public_subnet"
 }
 
 output "private_subnet_id" {
@@ -52,7 +52,7 @@ output "private_subnet_cidr" {
   description = "CIDR of the created private_subnet"
 }
 
-output "private_subnet_status" {
-  value       = module.vpc.private_subnet_status
-  description = "Status of the created private_subnet"
+output "private_subnet_vpc_id" {
+  value       = module.vpc.private_subnet_vpc_id
+  description = "VPC of the created private_subnet"
 }

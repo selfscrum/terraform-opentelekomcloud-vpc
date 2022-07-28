@@ -38,9 +38,9 @@ output "public_subnet_cidr" {
   description = "CIDR of the created public subnet"
 }
 
-output "public_subnet_status" {
-  value       = opentelekomcloud_vpc_subnet_v1.public.status
-  description = "Status of the created public subnet. Must be ACTIVE."
+output "public_subnet_vpc_id" {
+  value       = opentelekomcloud_vpc_subnet_v1.public.vpc_id
+  description = "VPC of the created public subnet"
 }
 
 output "private_subnet_id" {
@@ -53,7 +53,7 @@ output "private_subnet_cidr" {
   description = "CIDR of the created private subnet"
 }
 
-output "private_subnet_status" {
-  value       = opentelekomcloud_vpc_subnet_v1.private.status
-  description = "Status of the created private subnet. Must be ACTIVE."
+output "private_subnet_vpc_id" {
+  value       = opentelekomcloud_vpc_subnet_v1.private.vpc_id
+  description = "VPC of the created private subnet"
 }
