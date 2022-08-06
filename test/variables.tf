@@ -1,7 +1,7 @@
 variable "stage" {
   type        = string
   description = "Project qualifier for tags an unique resource names"
-  default     = "dev"
+  default     = "test-vpc"
 }
 
 variable "vpc_cidr" {

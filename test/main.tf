@@ -2,6 +2,7 @@ terraform {
   required_version = ">= 0.12.26"
 }
 
+variable identity_endpoint {}
 variable access_key {}
 variable secret_key {}
 variable domain_name {}
@@ -12,7 +13,7 @@ provider "opentelekomcloud" {
   secret_key  = var.secret_key
   domain_name = var.domain_name
   tenant_name = var.tenant_name
-  auth_url    = "https://iam.eu-de.otc.t-systems.com/v3"
+  auth_url    = var.identity_endpoint
 }
 
 module "vpc" {

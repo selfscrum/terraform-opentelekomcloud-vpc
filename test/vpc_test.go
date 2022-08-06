@@ -8,10 +8,11 @@ import (
 )
 
 func TestTerraformVpc(t *testing.T) {
+	t.Parallel()
 	// retryable errors in terraform testing.
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: ".", VarFiles: []string{"./secret.tfvars"},
+		TerraformDir: ".", VarFiles: []string{"./test-secret.tfvars"},
 	})
 
 	defer terraform.Destroy(t, terraformOptions)
